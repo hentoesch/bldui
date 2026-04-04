@@ -1,0 +1,153 @@
+{
+    "close": true,
+    "dataModel": {
+        "fields": [
+            {
+                "alias": "sim",
+                "changeAllowed": "ALL",
+                "defaultValue": "0",
+                "name": "sim_id",
+                "nameAs": "sim_id",
+                "type": "N"
+            },
+            {
+                "alias": "sim",
+                "changeAllowed": "ALL",
+                "defaultValue": "",
+                "name": "sim_serial",
+                "nameAs": "sim_serial",
+                "type": "C"
+            },
+            {
+                "alias": "sim",
+                "changeAllowed": "ALL",
+                "defaultValue": "",
+                "name": "sim_pin",
+                "nameAs": "sim_pin",
+                "type": "C"
+            },
+            {
+                "alias": "sim",
+                "changeAllowed": "ALL",
+                "defaultValue": "",
+                "name": "sim_bemerkung",
+                "nameAs": "sim_bemerkung",
+                "type": "C"
+            }
+        ],
+        "group": null,
+        "keyField": null,
+        "limit": null,
+        "linkField": null,
+        "order": null,
+        "tables": [
+            {
+                "alias": "sim",
+                "foreign_key": null,
+                "key": "sim_id",
+                "name": "sysSim",
+                "type": "master"
+            }
+        ],
+        "where": null
+    },
+    "formModel": {
+        "buttons": null,
+        "close": null,
+        "colPx": 50,
+        "cols": 8,
+        "controls": null,
+        "fields": [
+            {
+                "bound": true,
+                "changeAllowed": "ALL",
+                "col": 1,
+                "colspan": "4",
+                "dataType": "C",
+                "domObject": null,
+                "floatingLabel": true,
+                "hidden": false,
+                "initValue": "",
+                "inputType": "NGINPUT",
+                "itemProvider": null,
+                "items": null,
+                "label": "sim_serial",
+                "locked": false,
+                "multiRows": 5,
+                "name": "sim_serial",
+                "row": 1,
+                "rowspan": "1",
+                "style": {
+                    "width": "206px"
+                },
+                "syncFields": null,
+                "tabindex": 1,
+                "textField": "sim_serial",
+                "validatorParam": null,
+                "validatorRef": null
+            },
+            {
+                "bound": true,
+                "changeAllowed": "ALL",
+                "col": 4,
+                "colspan": "4",
+                "dataType": "C",
+                "domObject": null,
+                "floatingLabel": true,
+                "hidden": false,
+                "initValue": "",
+                "inputType": "NGINPUT",
+                "itemProvider": null,
+                "items": null,
+                "label": "sim_pin",
+                "locked": false,
+                "multiRows": 5,
+                "name": "sim_pin",
+                "row": 1,
+                "rowspan": "1",
+                "style": {
+                    "width": "206px"
+                },
+                "syncFields": null,
+                "tabindex": 2,
+                "textField": "sim_pin",
+                "validatorParam": null,
+                "validatorRef": null
+            },
+            {
+                "bound": true,
+                "changeAllowed": "ALL",
+                "col": 1,
+                "colspan": "8",
+                "dataType": "C",
+                "domObject": null,
+                "floatingLabel": true,
+                "hidden": false,
+                "initValue": "",
+                "inputType": "NGINPUT",
+                "itemProvider": null,
+                "items": null,
+                "label": "sim_bemerkung",
+                "locked": false,
+                "multiRows": 5,
+                "name": "sim_bemerkung",
+                "row": 2,
+                "rowspan": "1",
+                "style": {
+                    "width": "414px"
+                },
+                "syncFields": null,
+                "tabindex": 3,
+                "textField": "sim_bemerkung",
+                "validatorParam": null,
+                "validatorRef": null
+            }
+        ],
+        "isModal": true,
+        "rows": 3,
+        "title": "sim"
+    },
+    "host": "localhost",
+    "port": "6109",
+    "user": "john"
+}

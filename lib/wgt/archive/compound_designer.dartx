@@ -1,0 +1,110 @@
+import 'package:flutter/material.dart';
+import 'datamodel_designer.dart';
+import 'json_designer.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:bldui/bloc/bloc.dart';
+
+class CompoundDesigner extends StatefulWidget {
+  final Widget designWidget;
+  Map model;
+  final Function onButtonPressed;
+
+  CompoundDesigner(
+      {required this.designWidget,
+      required this.onButtonPressed,
+      required this.model,
+      super.key});
+
+  @override
+  State<CompoundDesigner> createState() => _CompoundDesignerState();
+}
+
+class _CompoundDesignerState extends State<CompoundDesigner>
+    with TickerProviderStateMixin {
+  var jsonBloc;
+
+  bool showJson = false;
+  var _overlayController = OverlayPortalController();
+
+  @override
+  Widget build(BuildContext context) {
+    jsonBloc = BlocProvider.of<JsonBloc>(context);
+    var tabController = TabController(length: 2, vsync: this);
+    return BlocBuilder<DesignBloc, DesignState>(
+      builder: (context, state) {
+        return Column(
+          children: [
+            SizedBox(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.height - 100,
+              child: Card(
+                child: Column(children: [
+                  TabBar(
+                      controller: tabController,
+                      tabs: [Tab(text: "Model"), Tab(text: "Data")]),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width,
+                    height: MediaQuery.of(context).size.height - 400,
+                    child: TabBarView(controller: tabController, children: [
+                      widget.designWidget,
+                      DataModelDesigner(model: widget.model)
+                      //DataModelDesigner(dataModel: widget.model['dataModel'])
+                    ]),
+                  )
+                ]),
+              ),
+            ),
+            if (showJson)
+              OverlayPortal(
+                overlayChildBuilder: (context) => Positioned(
+                    top: 100,
+                    left: 100,
+                    child: Center(
+                      child: JsonDesigner(
+                          model: widget.model,
+                          onButtonPressed: (String button, newModel) {
+                            //_activeItem!.cargo = newModel;
+                            if (button == "save") {
+                              widget.model = newModel;
+                            }
+                            _overlayController.hide();
+                            showJson = false;
+                            setState(() {});
+                          },
+                          key: UniqueKey()),
+                    )),
+                controller: _overlayController,
+              ),
+            Align(
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    ElevatedButton(
+                        child: Text("Save"),
+                        onPressed: () {
+                          widget.onButtonPressed("save", widget.model);
+                          jsonBloc.add(JsonPersistBufferedEvent(
+                              eventType: EventType.UPDATE));
+                        }),
+                    ElevatedButton(
+                        child: Text("Cancel"),
+                        onPressed: () {
+                          widget.onButtonPressed("cancel", {});
+                          //Navigator.pop(context, false);
+                        }),
+                    ElevatedButton(
+                        child: Text("Edit Model"),
+                        onPressed: () {
+                          showJson = true;
+                          _overlayController.show();
+                          setState(() {});
+                        }),
+                  ]),
+            ),
+          ],
+        );
+      },
+    );
+  }
+}

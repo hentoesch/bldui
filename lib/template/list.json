@@ -1,0 +1,155 @@
+{
+    "baseFilter": null,
+    "close": false,
+    "dataModel": {
+        "fields": [
+            {
+                "alias": "sim",
+                "changeAllowed": "ALL",
+                "defaultValue": "0",
+                "name": "sim_id",
+                "nameAs": "sim_id",
+                "type": "N"
+            },
+            {
+                "alias": "sim",
+                "changeAllowed": "ALL",
+                "defaultValue": "",
+                "name": "sim_serial",
+                "nameAs": "sim_serial",
+                "type": "C"
+            },
+            {
+                "alias": "sim",
+                "changeAllowed": "ALL",
+                "defaultValue": "",
+                "name": "sim_pin",
+                "nameAs": "sim_pin",
+                "type": "C"
+            },
+            {
+                "alias": "sim",
+                "changeAllowed": "ALL",
+                "defaultValue": "",
+                "name": "sim_bemerkung",
+                "nameAs": "sim_bemerkung",
+                "type": "C"
+            }
+        ],
+        "group": null,
+        "keyField": null,
+        "limit": null,
+        "linkField": null,
+        "order": "sim_serial",
+        "tables": [
+            {
+                "alias": "sim",
+                "foreign_key": null,
+                "key": "sim_id",
+                "name": "sysSim",
+                "type": "master"
+            }
+        ],
+        "where": null
+    },
+    "filterFields": [
+        {
+            "enabled": true,
+            "label": "sim_serial",
+            "name": "sim_serial",
+            "setting": "sim_serial",
+            "submap": null
+        },
+        {
+            "enabled": true,
+            "label": "sim_pin",
+            "name": "sim_pin",
+            "setting": "sim_pin",
+            "submap": null
+        },
+        {
+            "enabled": true,
+            "label": "sim_bemerkung",
+            "name": "sim_bemerkung",
+            "setting": "sim_bemerkung",
+            "submap": null
+        }
+    ],
+    "host": "localhost",
+    "listModel": {
+        "close": null,
+        "columnBorder": true,
+        "cssClass": "row",
+        "hasRecordPrompt": true,
+        "headerHeight": 100,
+        "height": 0,
+        "modelHeight": 22,
+        "paragraphs": [
+            {
+                "rows": [
+                    {
+                        "callbackRef": null,
+                        "colspan": "4",
+                        "columns": [
+                            {
+                                "callbackRef": null,
+                                "clickEvent": null,
+                                "colspan": "1",
+                                "doc": null,
+                                "filterType": "MATCH",
+                                "hasFilter": true,
+                                "height": "16px",
+                                "label": "Serien Nummer",
+                                "name": "sim_serial",
+                                "presetFilter": "",
+                                "rowspan": "1",
+                                "style": null,
+                                "width": "180px"
+                            },
+                            {
+                                "callbackRef": null,
+                                "clickEvent": null,
+                                "colspan": "1",
+                                "doc": null,
+                                "filterType": "MATCH",
+                                "hasFilter": true,
+                                "height": "16px",
+                                "label": "Pin",
+                                "name": "sim_pin",
+                                "presetFilter": "",
+                                "rowspan": "1",
+                                "style": null,
+                                "width": "180px"
+                            },
+                            {
+                                "callbackRef": null,
+                                "clickEvent": null,
+                                "colspan": "1",
+                                "doc": null,
+                                "filterType": "MATCH",
+                                "hasFilter": true,
+                                "height": "16px",
+                                "label": "Bemerkung",
+                                "name": "sim_bemerkung",
+                                "presetFilter": "",
+                                "rowspan": "1",
+                                "style": null,
+                                "width": "380px"
+                            }
+                        ],
+                        "style": null
+                    }
+                ],
+                "style": {
+                    "margin": "0px"
+                }
+            }
+        ],
+        "style": null,
+        "width": 0,
+        "withFilter": true,
+        "withHeader": false,
+        "withSearchInput": false
+    },
+    "port": "6109"
+}

@@ -1,0 +1,36 @@
+{
+    "items": [
+        {
+            "items": [
+                {
+                    "label": "Page",
+                    "routerLink": [
+                        "PageLoader",
+                        {
+                            "page": "page_tree"
+                        }
+                    ]
+                },
+                {
+                    "label": "Object",
+                    "routerLink": [
+                        "PageLoader",
+                        {
+                            "page": "object_tree"
+                        }
+                    ]
+                },
+                {
+                    "label": "Menu",
+                    "routerLink": [
+                        "PageLoader",
+                        {
+                            "page": "menu_page"
+                        }
+                    ]
+                }
+            ],
+            "label": "Design"
+        }
+    ]
+}
