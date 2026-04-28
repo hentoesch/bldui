@@ -152,8 +152,7 @@ var _listColumnTemplate = {
 };
 
 var _formFieldTemplate = {
-  "bound": true,
-  "changeAllowed": "ALL",
+  "row": 1,
   "col": 4,
   "colspan": "2",
   "dataType": "C",
@@ -168,7 +167,8 @@ var _formFieldTemplate = {
   "locked": false,
   "multiRows": 5,
   "name": "sim_pin",
-  "row": 1,
+  "bound": true,
+  "changeAllowed": "ALL",
   "rowspan": "1",
   "style": {"width": "206px"},
   "syncFields": null,

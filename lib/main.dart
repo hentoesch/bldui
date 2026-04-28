@@ -4,12 +4,18 @@ import 'package:uilib/common/setenv.dart';
 import 'package:bldui/common/routes.dart' as rt;
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:uilib/bloc/bloc.dart';
+import 'package:uilib/common/host_object.dart';
+import 'package:uilib/common/types.dart';
+import 'package:bldui/callback/callback.dart';
 
 // GoRouter configuration
 final _router = rt.getRoutes();
 
 void main() {
   setEnv(mnd: 'jsa', app: 'bldui');
+  HostObject.register(
+      hostObjectType: HostObjectType.callback, hostObject: callbackMap);
+
   runApp(MultiBlocProvider(providers: [
     /// ????
     BlocProvider<AppBloc>(

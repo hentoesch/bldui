@@ -30,7 +30,7 @@ class _DataModelDesignerState extends State<DataModelDesigner> {
   Map<String, String?> _transform(map) {
     Map<String, String?> retval = {};
     for (var m in map.entries) {
-      retval[m.key] = m.value;
+      retval[m.key] = "${m.value}";
     }
     return retval;
   }
@@ -98,8 +98,10 @@ class _DataModelDesignerState extends State<DataModelDesigner> {
                       child: Icon(Icons.add),
                       onTap: () {
                         designBloc.add(DesignFieldChangeEvent(
+                            // fieldName: widget.model['dataModel'][hdr][i]
+                            //     ['name'],
                             fieldName: widget.model['dataModel'][hdr][i]
-                                ['name'],
+                                ['nameAs'],
                             fieldAction: FieldAction.addField));
                       },
                     ),
